@@ -1,0 +1,18 @@
+.form-control{
+    
+    /* margin: auto; */
+    border: black 1px solid;
+}
+.form-control div{
+    background-color: rgb(110, 106, 98);
+    padding: 2em;
+    width: 70%;
+    margin: auto;
+}
+
+#dis{
+    height: 70px;
+    overflow-y: scroll;
+}
+
+

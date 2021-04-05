@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/layout.css">
+    <link rel="stylesheet" href="/modules.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section id="bookShelvs"> 
+           <% booksResult.forEach(ele=>{  %>
+            <div>
+                <img src=" <%= ele.img %> " alt="">
+                <h2> title: 
+                    <%= ele.title %>
+                </h2>
+                <h3>Author: 
+                    <%= ele.author %>
+                </h3>
+                <p id="dis">
+                    <%= ele.description %>
+                </p>
+            </div>
+           <% }) %>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/modules.css">
+
+
+  <title>Search Form</title>
+</head>
+
+<body>
+  <form action="/searches" method="post" class="form-control">
+    <div class="form-control">
+      <label for="name">Enter your book </label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div class="form-control">
+      <label for="author">Author: </label>
+      <input type="radio" name="type" value="author" id="author" required>
+    </div>
+    <div class="form-control">
+      <label for="title">Title: </label>
+      <input type="radio" name="type" value="title" id="title" required>
+    </div>
+    <div class="form-control">
+      <input type="submit" value="Search!">
+    </div>
+  </form>
+</body>
+
+</html>
