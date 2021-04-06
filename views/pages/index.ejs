@@ -15,7 +15,17 @@
        
     </header>
     <main>
-        <h1>Hello I am >alive</h1>
+        <p><%= books.length %></p>
+        <%
+        books.forEach(book=>{ %>
+            <div>
+                <%- include('./books/detail', {book: book}) %>
+                
+                <form action="/books/<%= book.id %>">
+                    <button type="submit">View Details</button>
+                </form>
+            </div>
+            <% }) %>
     </main>
     <footer>
 
