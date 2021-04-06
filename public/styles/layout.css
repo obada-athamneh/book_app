@@ -1,4 +1,7 @@
-img {
-    position: relative;
-    
-}
+
+@media screen and (min-width:480px) and (max-width:767px){
+
+    img {
+        position: relative;
+        
+    }
