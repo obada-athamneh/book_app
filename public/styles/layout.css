@@ -5,3 +5,20 @@
         position: relative;
         
     }
+
+    #bookShelvs img {
+        margin: auto;
+        display: block;
+        box-shadow: 5px 5px 5px rgb(170, 116, 116);
+    }
+    #bookShelvs h2,h3{
+        font-size: small;
+        font-family: cursive;
+        text-align: center;
+        
+    }
+   
+    }
+    @media screen and (min-width:767px){
+                  
+    }
