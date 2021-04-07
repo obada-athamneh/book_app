@@ -1,12 +1,47 @@
-<section>
-    <div>
-        <img src="<%= book.image_url %>" alt="">
-        <h2>
-            <%= book.title %>
-        </h2>
-        <h3>
-            <%= book.author %>
-        </h3>
-
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/base.css">
+</head>
+<body>
+    <section>
+        <div>
+            <img src="<%= book.image_url %>" alt="">
+            <h2>
+                <%= book.title %>
+            </h2>
+            <h3>
+                <%= book.author %>
+            </h3>
+            <button onclick="toggle()">Update Book</button>
+            <form action="/books/<%= book.id %>?_methode=DELETE" method="POST">
+                <input type="hidden" value="<%= book.id %>">
+                <input type="submit" value="Delete book">
+              </form>
+    
+              <form action="/books/update/<%= book.id%>?_methode=PUT" method="POST" id="bookForm">
+                <fieldset>
+                    <legend>Update Book</legend>
+                    <input type="text" name="author" value="<%=book.title%>">
+                    <br>
+                    <input type="text" name="title" value="<%=book.author%>">
+                    <br>
+                    <input type="text" name="isbn" value="<%= book.isbn%>">
+                    <br>
+                    <input type="text" name="img" value="<%=book.image_url %>">
+                    <br>
+                    <input type="text" name="description" value="<%= book.description%>">
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/app.js"></script>
+</html>

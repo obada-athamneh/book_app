@@ -1,3 +1,6 @@
 body{
     background-color: rgb(155, 82, 82);
 }
+#bookForm {
+    display: none;
+}
