@@ -19,12 +19,20 @@
         <%
         books.forEach(book=>{ %>
             <div>
-                <%- include('./books/detail', {book: book}) %>
+                <!-- <%- include('./books/detail', {book: book}) %> -->
+                <h2>
+                    <%= book.title %>
+                </h2>
+                <h3>
+                    <%= book.author %>
+                </h3>
                 
                 <form action="/books/<%= book.id %>">
                     <button type="submit">View Details</button>
                 </form>
             </div>
+           
+           
             <% }) %>
     </main>
     <footer>

@@ -7,16 +7,40 @@ const app = express();
 require('dotenv').config();
 const cors = require('cors');
 const PORT = process.env.PORT || 3000;
+const methodOverride = require('method-override');
 
 const pg = require('pg');
 const dbClient = new pg.Client(process.env.DATABASE_URL)
 dbClient.connect();
-
+app.use(methodOverride('_methode'))
 app.use(express.static('./public/styles'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+app.put('/books/update/:id', updateBook);
+app.delete('/books/:id', deleteBook);
+
+function updateBook(req, res) {
+    const id = req.params.id;
+    let safeValues = [req.body.author, req.body.title, req.body.isbn, req.body.image_url, req.body.description];
+
+    const updateBooks = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4 description=$5 WHERE id=$6;';
+
+    dbClient.query(updateBooks, safeValues).then(result => {
+            res.redirect(`/books/${id}`);
+        })
+        // .catch(error, res);
+}
+
+
+function deleteBook(req, res) {
+    const id = req.params.id;
+    dbClient.query('DELETE FROM books WHERE id=$1', [id]).then(() => {
+        res.redirect('/');
+    }).catch(error => {console.log(error); handleError(error, res)});
+    
+}
 app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
 
